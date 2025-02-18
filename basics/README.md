@@ -39,4 +39,34 @@ An instance of that image running as a process
 > You can have multiples container running off the same image.
 
 ## Nginx
-Basic web service for docker containers.
+Basic web service for docker containers.<br>
+> docker container run --publish 80:80 nginx
+
+Downloaded image 'nginx  from Docker Hub
+Started a new container form that image
+Opened port 80 on the Host IP
+Routes the traffic to the container IP -> port 80
+
+⚠️ You may need to change the port -> Something else is already running on that port.
+
+> docker container run --publish 80:80 --detach nginx
+
+This way, the container runs in the background.
+
+## Seeing the containers running
+Each container has its unique ID, you may want to know if you want to stop them, for example.<br>
+To know this IDs, simply run:<br>
+> docker container ls
+
+It will show all the containers running.<br>
+Or, run:
+> docker container ls -a
+
+It shows all the containers, even the ones that aren't running.
+
+It is going to be useful when you are managing them: renaming, deleting and etc.
+
+To know all the commands in the `docker container` command, run:
+> docker container
+
+
