@@ -71,7 +71,38 @@ To know all the commands in the `docker container` command, run:
 
 ## Deleting  container
 If you run the `docker ls -a` you will notce that the ID is huge, but you actually only need the first three chars to delete it.<br>
-The deletion should be made in a non-running container. If you try to delete an active one, it will give an error. Unless you force it.
+The deletion should be made in a non-running container. If you try to delete an active one, it will give an error. Unless you force it.<br>
+Stopping a container:
+> docker stop <name>
+
+Deleting a container
 > docker container rm `-f` `<id0 id1 id2 id...>`
 
 The '-f' indicates the forced operation and the 'id...' means that you can delete more than one container at once, simply pass them IDs side to side.
+
+## Docker container run
+It is a command that first looks for that image locally in image cache. If it isn't there, it looks for it in remote images repositories (Docker Hub, by default).<br>
+Now, it downloads its latest version available and creates a new container based on that image and prepares to start.<br>
+Gives it a virtual IP on a private network inside docker engine and opens up port 80 on host and forward to port 80 in container.<br>
+Starts container by using the CMD in the image Dockerfile.
+
+### Changing the defaults
+The port, version and CMD run you seen above👆 are defaults, but all that can be changed when running the command.
+> docker container run --publish `8080:80` --name webhost -d `nginx -T`
+
+Respectively, host listening port, image version and CMD run.
+
+## A small dive into detach
+When you run a container in the terminal, you will notice that the terminal is now just the process running and the informations bout it being logged there.<br>
+If this behaviour is not wanted, simply detach the command and now it only runs in the background. If want to see something about it, just run the desired commands.
+> -d
+
+## --name
+Naming a container is good for practicability, because you can now run commands for it using it and not its ID, making things faster for you.
+> --name 'name'
+
+For example, the [nginx process](#-changing-the-defaults) we ran before is now named 'webserver'
+
+## Container VS Virtual Machines (VM)
+There are a lot of confusion and misconceptions about these two. There are similarities, but they are *not the same*.<br>
+Containers are simply processes running in a machine, not a machine itself.
