@@ -23,7 +23,7 @@ To enhance your Docker experience on Windows, it’s recommended to use **Window
 1. **Enable WSL and Virtual Machine Platform**:
 
    Open PowerShell as Administrator and run:
-   `bash`
+`bash`
 
 2.  **Install WSL**
 
@@ -42,8 +42,9 @@ To enhance your Docker experience on Windows, it’s recommended to use **Window
 
 Clone this repository to your local machine using the following command:
 
-`bash`
-git clone https://github.com/Axelvazslima/docker-studies.git
+>bash
+>
+> git clone https://github.com/Axelvazslima/docker-studies.git
 
 ### Credits and useful links 🔗
 
