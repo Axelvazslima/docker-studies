@@ -1,4 +1,4 @@
-# 🐳 BASICS 🐳
+# BASICS 🐳
 
 ## Checking docker version
 Check the version of your client; CLI. And the server.<br>
@@ -69,4 +69,9 @@ It is going to be useful when you are managing them: renaming, deleting and etc.
 To know all the commands in the `docker container` command, run:
 > docker container
 
+## Deleting  container
+If you run the `docker ls -a` you will notce that the ID is huge, but you actually only need the first three chars to delete it.<br>
+The deletion should be made in a non-running container. If you try to delete an active one, it will give an error. Unless you force it.
+> docker container rm ´-f´ `<id0 id1 id2 id...>`
 
+The '-f' indicates the forced operation and the 'id...' means that you can delete more than one container at once, simply pass them IDs side to side.
