@@ -58,3 +58,8 @@ Clone this repository to your local machine using the following command:
 
 Feel free to explore and contribute to this repository! If you have suggestions, improvements, or corrections, please open an issue or create a pull request.
 
+<p align="center">
+  <a href="https://skillicons.dev">
+    <img src="https://skillicons.dev/icons?i=git,docker,kubernetes,python,bash,linux" />
+  </a>
+</p>
