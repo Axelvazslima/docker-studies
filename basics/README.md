@@ -1,5 +1,7 @@
 # BASICS 🐳
 
+Docker is a platform that allows developers to package, distribute and run applications in different environments called ==[containers](#container)==. It is a fundamental concept about docker alongside ==[images](#image)==. We'll dive into it later.
+
 ## Checking docker version
 
 Check the version of your client; CLI. And the server.
@@ -34,17 +36,83 @@ EXAMPLE:
 
 > `docker run` **vs** `docker container run`
 
+## Dockerfile
+
+> Used to create your own [images](#image).
+
+A text based file with no extension. It contains a sequence of instructions - really a sequence, it executes them in order.
+
+It has its own language, but its really simple. *Pretty much english*.
+
+### Dockerfile base commands
+
+`FROM <base image>` It can be an OS, like ubuntu.
+
+```ENV APP_NAME="docker-studies" \ APP_ENV="production"``` Set environment variables.
+
+`WORKDIR <working directory inside the container>`
+
+`COPY ..` Copy application files from the host to the container.
+
+`RUN apt-get update && apt-get install -y curl` Install necessary dependencies.
+
+`EXPOSE <PORT>` Exposes a port, it is useful for web applications.
+
+`ARG BUILD_VERSION=1.0.0` Defines an argument that can be passed during build.
+
+`ENV VERSION=$BUILD_VERSION` Uses the argument to create an environment variable.
+
+`CMD ["echo", "Hello, Docker!"]` Defines the default command that runs when the container starts.
+
+### Building a Dockerfile
+
+Just run: `docker build -t <name> --build-arg <build argument>` "-t" tags the image as "\<name\>" and "build-arg" passes a "\<build argument\>".
+
+### Run the container
+
+Run `docker run --rm \<name\>` "--rm" automatically removes the container after it stops.
+
 ## Image
 
-The binaries, libraries and source code that makes your application.
+> Read-only template that contains everything needed to run an application. Static blueprint.
 
-> Nginx, for example
+The binaries, libraries and dependencies, source code, operational system, application code, environment variables, configuration files(...) that makes your application.
+
+[Nginx](#nginx), for example
+
+### Images key characteristics
+
+🧍‍♂️ Immutable;
+☁️ Stored in Docker registries, like [Docker Hub](https://hub.docker.com) - or locally;
+🛠️ Used to create docker [containers](#container).
 
 ## Container
 
-An instance of that image running as a process.
+Isolated, lightweight and portable execution environment that includes the application and all its dependencies.
 
-> You can have multiples container running off the same image.
+> An instance of that image running as a process. You can have multiples container running off the same image.
+
+### Containers key characteristics
+
+🏃‍♂️‍➡️ Runs as a process on the host machine;
+🌬️ Ephemeral, by default: can be removed or restarted - also, paused;
+🏠 Uses an image as its foundation.
+
+## Usual misconception
+
+[Images](#image) and [containers](#container) definitions often confuses people. They tend to think they are pretty much the same thing, but that's not true.
+
+So, it is important for you to really understand each one of them.
+
+[Know more about it.](https://circleci.com/blog/docker-image-vs-container/)
+
+## The pull command
+
+> Download image from docker registries.
+
+If you try to run a container from an image that doesn't exist locally (first place it looks for), it will automatically install it from the docker registries.
+
+But, if you want to manually install it, run: `docker pull <image>`
 
 ## Nginx
 
@@ -151,3 +219,19 @@ Run `docker container exec -it` to run additional command in existing container.
 `docker container run` command accepts commands. These commands replace the default commands of your run.
 
 > E.g. the nginx default command is "nginx -g 'daemon ...'", but if run it with a *bash* command it will be replaced by *bash*. You can see it in the docker `container ls -a`.
+
+## Linux distros
+
+There are lots of linux distros you can download, like *ubuntu* or *[alpine](#alpine-linux)*.
+
+The distros commands might change (e.g. alpine *doesn't have a bash*, but it does have a shell, *the sh* - works similarly.)
+
+### Alpine Linux
+
+*Ideal for images creation*, because it's lightweight and secure.
+
+It lacks some features, but that's the reason it's light.
+
+Running it with it's shell, remember it doesnt have a 'bash' command: `docker container run -it alpine sh`.
+
+[Know more about alpine.](https://www.alpinelinux.org/)
