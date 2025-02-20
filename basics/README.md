@@ -1,7 +1,7 @@
 # BASICS 🐳
 
-Docker is a platform that allows developers to package, distribute and run applications in different environments called ==[containers](#container)==. It is a fundamental concept about docker alongside ==[images](#image)==. We'll dive into it later.
 
+Docker is a platform that allows developers to package, distribute and run applications in different environments called [containers](#container). It is a <mark>fundamental concept about docker</mark> alongside [images](#image). We'll dive into it later.
 ## Checking docker version
 
 Check the version of your client; CLI. And the server.
@@ -72,6 +72,8 @@ Just run: `docker build -t <name> --build-arg <build argument>` "-t" tags the im
 
 Run `docker run --rm \<name\>` "--rm" automatically removes the container after it stops.
 
+You will understand more about [these commands](#docker-container-run) later.
+
 ## Image
 
 > Read-only template that contains everything needed to run an application. Static blueprint.
@@ -83,19 +85,23 @@ The binaries, libraries and dependencies, source code, operational system, appli
 ### Images key characteristics
 
 🧍‍♂️ Immutable;
+
 ☁️ Stored in Docker registries, like [Docker Hub](https://hub.docker.com) - or locally;
+
 🛠️ Used to create docker [containers](#container).
 
 ## Container
 
-Isolated, lightweight and portable execution environment that includes the application and all its dependencies.
+*Isolated, lightweight and portable execution environment* that includes the application and all its dependencies.
 
 > An instance of that image running as a process. You can have multiples container running off the same image.
 
 ### Containers key characteristics
 
 🏃‍♂️‍➡️ Runs as a process on the host machine;
+
 🌬️ Ephemeral, by default: can be removed or restarted - also, paused;
+
 🏠 Uses an image as its foundation.
 
 ## Usual misconception
