@@ -241,3 +241,20 @@ It lacks some features, but that's the reason it's light.
 Running it with it's shell, remember it doesnt have a 'bash' command: `docker container run -it alpine sh`.
 
 [Know more about alpine.](https://www.alpinelinux.org/)
+
+## Docker networks
+
+Much on networks should be on the basics, because it is a really important part of Docker. But it's a long topic and can get a bit complicated so I decided to make a section all about it.
+
+> [Docker Networks](https://github.com/Axelvazslima/docker-studies/tree/master/networks)
+
+## Commands essentials
+
+`-p` is always is HOST:CONTAINER format.
+
+`--format` is a commom option for formatting the output of commands using "Go Templates".
+    * `docker container inspect --format "{{ json_node_for_what_we_are_looking_for }}" <container_name>`
+
+`docker container port <container_name>` outputs which ports are forwarding traffic to that container from the host into the container itself.
+
+
