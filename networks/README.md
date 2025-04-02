@@ -157,3 +157,17 @@ Their inter-communication never leaver host.
 All externally exposed ports closed by default.
 
 You must manually expose, `-p` -> better default security.
+
+## DNS (Domain Name System)
+
+It translates human-readable domain names into numerical IP addresses that computers use to identify ech other on the network.
+
+### Naming
+
+Forget IPs -> Static IPs and using IPs for talking to containers is an anti-pattern. Avoid it.
+
+Built-in DNS server that containers use by default.
+
+### DNS Default Names
+
+Docker defaults the hostname to the container's name, but you can also set aliases.
